@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 // import {ReactComponent as Logo} from "../../logo.svg"
 import { ReactComponent as Logo } from "../../Assets/syndiologo.svg";
 import "./Navbar.scss";
 
 export default function Navbar(props) {
   return (
+    // A div consisting of the logo and a dropdown box, where dropdown data is rendered
+    // based on the headerdata (groups) prop 
     <div className="Navbar-container">
       <div>
         <Logo className="Logo-container" />

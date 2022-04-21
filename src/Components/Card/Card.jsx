@@ -5,6 +5,7 @@ export default function Card(props) {
   const { label, data } = props.data;
 
   const renderSwitch = (label, data) => {
+    //returns data based on the label case 
     switch (label) {
       case "Pay Equity Gap":
         return (
@@ -27,10 +28,15 @@ export default function Card(props) {
               equity gap
           </div>
         );
+        default:
+            return(
+                <></>
+            )
     }
   };
 
   return (
+    // Renders the label and data based on the label
     <div className="Card-container">
       <div className="Label-container">{label}</div>
       {renderSwitch(label, data)}

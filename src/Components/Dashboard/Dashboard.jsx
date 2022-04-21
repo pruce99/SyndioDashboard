@@ -5,11 +5,14 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import DataViewer from "../DataViewer/DataViewer";
 
 export default function Dashboard() {
+  // eslint-disable-next-line
   const [headerdata, setHeaderData] = useState([]);
   const [dropdownHeader, setDropdownHeader] = useState();
   const [pageContentData, setPageContentData] = useState({});
   const [switchState, setSwitchState] = useState("Gender");
 
+  //fetches data for the header dropdown, initially after the component completes rendering
+  //useEffect with an empty array is more like component did mount
   useEffect(() => {
     const getHeaderData = async () => {
       await axios
@@ -22,8 +25,10 @@ export default function Dashboard() {
     getHeaderData();
   }, []);
 
+  //Gets page content based on the value of the drop down selector
+  //Two available options as of now
+  //Group by function and Group by role
   useEffect(() => {
-    // console.log(dropdownHeader)
     const getPageContent = async () => {
       if (dropdownHeader === "Group by Function") {
         await axios
@@ -44,17 +49,30 @@ export default function Dashboard() {
 
   return (
     <div>
+      {/* 
+      headerdata = array of object[{},{}], dropDown values
+      dropdownheader = string, to choose between two groups
+      setDropdownHeader = function, to change value of dropdownheader
+      */}
       <Navbar
         headerdata={headerdata}
         dropdownHeader={dropdownHeader}
         setDropdownHeader={setDropdownHeader}
       />
+      {/* setSwitchState = takes in string, to change between gender and race */}
       <ToggleSwitch setSwitchState={setSwitchState} />
 
       <div>
+        {/* Calling Data viewer if the fetched data by group is not empty */}
         {JSON.stringify(pageContentData) !== "{}" ? (
           <>
-            <DataViewer pageContentData={pageContentData} switchState ={switchState} />
+            {/* pageContentData = object of object, data fetched based on group 
+                switchState = Gender or Race
+            */}
+            <DataViewer
+              pageContentData={pageContentData}
+              switchState={switchState}
+            />
           </>
         ) : (
           <></>
