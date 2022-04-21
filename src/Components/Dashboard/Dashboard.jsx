@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import DataViewer from "../DataViewer/DataViewer";
 
 export default function Dashboard() {
   const [headerdata, setHeaderData] = useState([]);
@@ -39,7 +40,6 @@ export default function Dashboard() {
       }
     };
     getPageContent();
-    // console.log(pageContentData)
   }, [dropdownHeader]);
 
   return (
@@ -50,10 +50,11 @@ export default function Dashboard() {
         setDropdownHeader={setDropdownHeader}
       />
       <ToggleSwitch setSwitchState={setSwitchState} />
+
       <div>
         {JSON.stringify(pageContentData) !== "{}" ? (
           <>
-            <div>{console.log(pageContentData.data.gender.payEquityGap)}</div>
+            <DataViewer pageContentData={pageContentData} switchState ={switchState} />
           </>
         ) : (
           <></>
