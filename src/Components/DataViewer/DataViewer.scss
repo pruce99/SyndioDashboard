@@ -1,0 +1,9 @@
+.Dataviewer-container {
+  display: flex;
+}
+
+.Dataviewer-container {
+  @media screen and (max-width: 500px) {
+      flex-direction: column;
+  }
+}

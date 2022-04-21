@@ -19,3 +19,12 @@
         background-color: #e7e7e7
     }
 }
+
+.Toggle-container {
+    @media screen and (max-width: 500px) {
+        .Switch-container{
+        padding: 5px 50px;
+        }
+    }
+  }
+  

@@ -1,0 +1,22 @@
+.Card-container{
+    margin: 50px 30px;
+    background-color: white ;
+    padding: 24px;
+    width: 30%;
+    .Label-container{
+        font-size: 12px;
+        color: #666666;
+        margin-bottom: 10px;
+    }
+    .Data-container{
+        font-size: 18px;
+    }
+}
+
+
+.Card-container {
+    @media screen and (max-width: 500px) {
+        width: 80%;
+        margin: 22px 15px;
+    }
+  }

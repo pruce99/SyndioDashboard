@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
+import './DataViewer.scss'
 
 export default function DataViewer(props) {
     const {switchState} = props
