@@ -7,6 +7,7 @@ export default function Dashboard() {
   const [headerdata, setHeaderData] = useState([]);
   const [dropdownHeader, setDropdownHeader] = useState();
   const [pageContentData, setPageContentData] = useState({});
+  const [switchState, setSwitchState] = useState("Gender");
 
   useEffect(() => {
     const getHeaderData = async () => {
@@ -37,11 +38,9 @@ export default function Dashboard() {
           });
       }
     };
-    getPageContent()
+    getPageContent();
     // console.log(pageContentData)
   }, [dropdownHeader]);
-
-  let data = pageContentData
 
   return (
     <div>
@@ -50,15 +49,15 @@ export default function Dashboard() {
         dropdownHeader={dropdownHeader}
         setDropdownHeader={setDropdownHeader}
       />
-      <ToggleSwitch/>
+      <ToggleSwitch setSwitchState={setSwitchState} />
       <div>
-        {
-          JSON.stringify(pageContentData) !== "{}" ? <>
-          <div>
-            {console.log(pageContentData.data.gender.payEquityGap)}
-          </div>
-          </> :<></>
-        }
+        {JSON.stringify(pageContentData) !== "{}" ? (
+          <>
+            <div>{console.log(pageContentData.data.gender.payEquityGap)}</div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
