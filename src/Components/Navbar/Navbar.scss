@@ -1,0 +1,25 @@
+.Navbar-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #373737;
+    width: 100%;
+    height: 4rem;
+    .Logo-container{
+        width: 120px;
+        height: 60px;
+        margin-left: 20px;
+    }
+    .Dropdown-Container{
+        margin-top: 10px;
+        margin-right: 10px;
+        select{
+            background-color: #262626;
+            color: white;
+            padding: 10px;
+            font-weight: 500;
+            font-size: 15px;
+            width: 200px;
+            border: #373737 solid ;
+        }
+    }
+}
